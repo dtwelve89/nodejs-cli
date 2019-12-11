@@ -14,5 +14,9 @@ JavaScript, NodeJS
 
 ### Run Instructions:
 
+- Clone repository from GitHub
+
+Run commands:
+
 - `node . ls` - show all files/folders in the current directory
 - `node . ls -R`- show all files/folders in the current directory and subdirectories
