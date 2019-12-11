@@ -32,19 +32,21 @@ const list = (dir = './') => {
 };
 
 // Show all files/folders in directory and subdirectories
-const listWithSub = (dir = './', files) => {
-  files = fs.readdirSync(dir);
+const listWithSub = (dir = './') => {
+  let files = fs.readdirSync(dir);
   files = files.filter(item => !/(^|\/)\.[^\/\.]/g.test(item));
 
+  // Print all files
   files.forEach(file => {
     console.log(file);
   });
 
+  // Recursive function to print all files in subdirectory
   files.forEach(file => {
     let dirPath = path.join(dir, file);
     if (fs.statSync(dirPath).isDirectory()) {
       console.log(`\n./${dirPath}:`);
-      listWithSub(dirPath, files);
+      listWithSub(dirPath);
     }
   });
 };
